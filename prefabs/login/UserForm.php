@@ -1,3 +1,6 @@
 <?php
 
-namespace App
+namespace AppBundle\Entity;
+class StundentForm{
+    private 
+    private $UserId;
