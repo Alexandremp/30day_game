@@ -2,5 +2,9 @@
 
 <?php 
     
-    class ai{
-           private $update
+    class botdev{
+           
+        
+           private $update;
+           private $recomended_data;
+           private $
