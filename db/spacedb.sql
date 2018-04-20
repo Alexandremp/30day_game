@@ -1,7 +1,7 @@
 CREATE TABLE GALAXY(
-     ID               SERIAL    PRIMARY KEY,
-     GALAXY_TYPE      INT       NOT NULL,
-     NAME             TEXT      NOT NULL
+   ID               SERIAL    PRIMARY KEY,
+   IMG_TYPE         INT       NOT NULL,
+   NAME             TEXT      NOT NULL
 );
 
 CREATE TABLE SOLAR_SYSTEM(
@@ -10,7 +10,7 @@ CREATE TABLE SOLAR_SYSTEM(
    XAXIS            INT       NOT NULL,
    YAXIS            INT       NOT NULL,
    N_PLANETS        INT       NOT NULL,
-   SOLAR_TYPE        INT       NOT NULL,
+   IMG_TYPE         INT       NOT NULL,
    GALAXY_ID        INT       REFERENCES GALAXY(ID)
 );
 CREATE TABLE PLANETS(
@@ -18,7 +18,7 @@ CREATE TABLE PLANETS(
    NAME             TEXT      NOT NULL,
    XAXIS            INT       NOT NULL,
    YAXIS            INT       NOT NULL,
-   PLANET_TYPE      INT       NOT NULL,
+   IMG_TYPE         INT       NOT NULL,
    SOLAR_SYSTEM_ID  INT       REFERENCES SOLAR_SYSTEM(ID)
 );
 
@@ -30,11 +30,19 @@ CREATE TABLE LAND_MASS(
    LAND_TYPE        INT       NOT NULL,
    PLANET_ID        INT       REFERENCES PLANETS(ID)
 );
+CREATE TABLE DUNGEONS(
+   ID               SERIAL    PRIMARY KEY,
+   NAME             TEXT      NOT NULL,
+   XAXIS            INT       NOT NULL,
+   YAXIS            INT       NOT NULL,
+   IMG_TYPE         INT       NOT NULL,
+   LAND_MASS_ID     INT       REFERENCES LAND_MASS(ID)
+);
 CREATE TABLE CITIES(
    ID               SERIAL    PRIMARY KEY,
    NAME             TEXT      NOT NULL,
    XAXIS            INT       NOT NULL,
    YAXIS            INT       NOT NULL,
-   CITY_TYPE        INT       NOT NULL,
+   IMG_TYPE         INT       NOT NULL,
    LAND_MASS_ID     INT       REFERENCES LAND_MASS(ID)
 );
