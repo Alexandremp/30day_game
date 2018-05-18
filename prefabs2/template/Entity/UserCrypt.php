@@ -36,5 +36,11 @@
   */
   
   private $password_hash;
+  
+  /**
+  *@Id @OneToOne(targetEntity="User")
+  */
+  
+  private $user_account_id;
 }
 ?>
