@@ -20,19 +20,19 @@
   private $id;
   
   /**
-  * @ORM\Column(type="text")
+  * @ORM\Column(type="text" ,length=100)
   */
   
   private $password_salt;
   
   /**
-  * @ORM\Column(type="text")
+  * @ORM\Column(type="text" ,length=100)
   */
   
   private $password_pepper;
   
   /**
-  * @ORM\Column(type="text")
+  * @ORM\Column(type="text" ,length=100)
   */
   
   private $password_hash;
