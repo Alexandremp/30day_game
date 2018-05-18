@@ -5,7 +5,7 @@
  use Doctrine\ORM\Mapping as ORM;
  
  /*
- * @ORM\Entiy(repository="App\Repository\UserCryptRepository")
+ * @ORM\Entiy(repository="App\Repository\UserDetailsRepository")
  */
  
  class Article
