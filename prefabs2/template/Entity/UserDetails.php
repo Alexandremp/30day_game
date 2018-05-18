@@ -20,19 +20,19 @@
   private $id;
   
   /**
-  * @ORM\Column(type="text")
+  * @ORM\Column(type="text" ,length=100)
   */
   
   private username;
   
   /**
-  * @ORM\Column(type="text")
+  * @ORM\Column(type="text" ,length=100)
   */
   
   private $email;
   
   /**
-  * @ORM\Column(type="text")
+  * @ORM\Column(type="text" ,length=100)
   */
   
   private $password;
