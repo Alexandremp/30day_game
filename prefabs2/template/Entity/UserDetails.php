@@ -20,7 +20,7 @@
   private $id;
   
   /**
-  * @ORM\Column(type="text" ,length=100)
+  * @ORM\Column(type="text" ,length=255)
   */
   
   private username;
@@ -32,7 +32,7 @@
   private $email;
   
   /**
-  * @ORM\Column(type="text" ,length=100)
+  * @ORM\Column(type="text" ,length=255)
   */
   
   private $password;
