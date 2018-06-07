@@ -1,0 +1,17 @@
+
+
+{% extends 'base.html.twig' %}
+{% block stylesheets %}{% endblock %}
+
+{% block title %}Scarred Sky{% endblock %}
+{% block body %}
+<div class="container">
+    <h2>Building Contruction</h2>
+    <button type="button" onclick="myFunction()" class="btn"><a href="{{ path('delete_route_name', {'id': entity.id }) }}">Delete</a></button>
+    <button type="button" onclick="myFunction()" class="btn btn-success"><a href="{{ path('delete_route_name', {'id': entity.id }) }}">Upgrade</a></button>
+    <button type="button" onclick="myFunction()" class="btn btn-danger"><a href="{{ path('delete_route_name', {'id': entity.id }) }}">Cancel</a></button>
+
+    <button type="button" onclick="myFunction()" class="btn btn-primary"><a href="{{ path('delete_route_name', {'id': entity.id }) }}">Primary</a></button>
+</div>
+
+{% endblock %}

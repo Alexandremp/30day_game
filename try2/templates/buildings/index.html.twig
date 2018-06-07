@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello{% endblock %}
+{% block stylesheets %}{% endblock %}
+{% block body %}
+              <h1> <b>Identifier: {{ buildings.id }}</b></h1>
+              <b>ControlHQ: </b>{{ buildings.ControlHQ }} <a href="/building/UpgradeControlHQ/{{ buildings.id }}" class="btn btn-danger upgradeControlHQ" data-id="{{ buildings.id }}">Upgrade</a>
+              <br><b>DrillingRig: </b>{{ buildings.DrillingRig }} <a href="/building/UpgradeDrillingRig/{{ buildings.id }}" class="btn btn-danger upgradeDrillingRig" data-id="{{ buildings.id }}">Upgrade</a>
+              <br><b>Warehouse: </b>{{ buildings.Warehouse }} <a href="/building/UpgradeWarehouse/{{ buildings.id }}" class="btn btn-danger upgradeWarehouse" data-id="{{ buildings.id }}">Upgrade</a>
+              <br><b>HuntersLodge: </b>{{ buildings.HuntersLodge }} <a href="/building/UpgradeHuntersLodge/{{ buildings.id }}" class="btn btn-danger upgradeHuntersLodge" data-id="{{ buildings.id }}">Upgrade</a>
+              <br><b>Barracks: </b>{{ buildings.Barracks }} <a href="/building/UpgradeBarracks/{{ buildings.id }}" class="btn btn-danger upgradeBarracks" data-id="{{ buildings.id }}">Upgrade</a>
+              <br><b>Laboratory: </b>{{ buildings.Laboratory }} <a href="/building/UpgradeLaboratory/{{ buildings.id }}" class="btn btn-danger upgradeLaboratory" data-id="{{ buildings.id }}">Upgrade</a>
+{% endblock %}
+{% block javascripts %}
+
+{% endblock %}
+
