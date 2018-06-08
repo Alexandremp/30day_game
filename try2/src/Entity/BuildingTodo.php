@@ -2,7 +2,7 @@
 namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 /**
- * @ORM\Entity(repositoryClass="App\Repository\BuildingsRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\BuildingTodoRepository")
  */
 class BuildingTodo
 {
@@ -21,85 +21,84 @@ class BuildingTodo
      */
     private $NumberOfFreeTasks;
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
+     */
+    private $BuildingName1;
+    /**
+     * @ORM\Column(type="datetime")
      */
     private $TaskBuild1;
+     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $BuildingName2;
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="datetime")
      */
     private $TaskBuild2;
+     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $BuildingName3;
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="datetime")
      */
     private $TaskBuild3;
+     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $BuildingName4;
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="datetime")
      */
     private $TaskBuild4;
+     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $BuildingName5;
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="datetime")
      */
     private $TaskBuild5;
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=255)
+     */
+    private $BuildingName6;
+    /**
+     * @ORM\Column(type="datetime")
      */
     private $TaskBuild6;
-    public function getId()
-    {
-        return $this->id;
-    }
-    public function getControlHQ(): ?int
-    {
-        return $this->ControlHQ;
-    }
-    public function setControlHQ(int $ControlHQ): self
-    {
-        $this->ControlHQ = $ControlHQ;
-        return $this;
-    }
-    public function getDrillingRig(): ?int
-    {
-        return $this->DrillingRig;
-    }
-    public function setDrillingRig(int $DrillingRig): self
-    {
-        $this->DrillingRig = $DrillingRig;
-        return $this;
-    }
-    public function getWarehouse(): ?int
-    {
-        return $this->Warehouse;
-    }
-    public function setWarehouse(int $Warehouse): self
-    {
-        $this->Warehouse = $Warehouse;
-        return $this;
-    }
-    public function getHuntersLodge(): ?int
-    {
-        return $this->HuntersLodge;
-    }
-    public function setHuntersLodge(int $HuntersLodge): self
-    {
-        $this->HuntersLodge = $HuntersLodge;
-        return $this;
-    }
-    public function getBarracks(): ?int
-    {
-        return $this->Barracks;
-    }
-    public function setBarracks(int $Barracks): self
-    {
-        $this->Barracks = $Barracks;
-        return $this;
-    }
-    public function getLaboratory(): ?int
-    {
-        return $this->Laboratory;
-    }
-    public function setLaboratory(int $Laboratory): self
-    {
-        $this->Laboratory = $Laboratory;
-        return $this;
-    }
+     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $BuildingName7;
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $TaskBuild7;
+     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $BuildingName8;
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $TaskBuild8;
+        /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $BuildingName9;
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $TaskBuild9;
+     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $BuildingName10;
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $TaskBuild10;
+    
 }
