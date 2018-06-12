@@ -24,6 +24,11 @@ class BuildingsController extends Controller
         $buildings=$this->getDoctrine()->getRepository(Buildings::class)->find($id);
         return $this->render('buildings/index.html.twig',array('buildings'=>$buildings));
     }
+    
+     /**
+     * @Route("/building_list/new", name="building_new")
+     *
+     */
 
     public function BuildStart()
     {
@@ -39,7 +44,7 @@ class BuildingsController extends Controller
         $buildings->setHuntersLodge(0);
         $buildings->setBarracks(0);
         $buildings->setLaboratory(0);
-
+        $buildings->setTask($buildings->getId());
         // tell Doctrine you want to (eventually) save the Product (no queries yet)
         $entityManager->persist($buildings);
 
