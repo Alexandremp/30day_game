@@ -2,5 +2,7 @@
     function writeMsg() {
     echo "Hello world!";
     }
-$subject = 'writeMsg' ;
+$subject = 'write'.'Msg' ;
 $subject() ;
+
+//Output: Hello world!
