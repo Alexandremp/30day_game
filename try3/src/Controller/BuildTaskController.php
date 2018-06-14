@@ -27,23 +27,21 @@ class BuildTaskController extends Controller
      * @Route("/building_task_creation/{id}", name="builtask_new")
      *
      */
-    public function BuildStart($id)
+    public function TaskBuildCreation($id)
     {
         $entityManager = $this->getDoctrine()->getManager();
         $buildings = $entityManager->getRepository(Building::class)->find($id);
         if (!$buildings) {
             throw $this->createNotFoundException('No product found for id '.$id);
         }
-        $level=$buildings->getControlHQ();
-        $level=$level+1;
-        $buildings->setControlHQ($level);
+        $buildings->setTaskId($id);
         $entityManager->flush();
         
-        
         $entityManager = $this->getDoctrine()->getManager();
+        $buildtask = $entityManager->getRepository(BuildingTodo::class)->find($id);
         $buildtask = new BuildingTodo();
-        $buildtask->setNumberOfTasks(1);
-        $buildtask->setNumberOfFreeTasks(0);
+        $buildtask->setNumberOfTasks(4);
+        $buildtask->setNumberOfFreeTasks(4);
         $buildtask->setTaskRemaingTime(null);
         $buildtask->setTaskRemaingTime2(null);
         $buildtask->setTask1(0);
@@ -61,7 +59,29 @@ class BuildTaskController extends Controller
         $entityManager->persist($buildtask);
         // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
-        return new Response('Saved new Task with id ' . $buildings->getId());
+        return new Response('Saved new Task with id ' . $buildtask->getId());
+    }
+    
+    
+        /**
+     * @Route("/buildtask/{building}/{id}", name="add_task")
+     * @Method({"GET", "POST"})
+     */
+    public function TaskCounter($building,$id){
+        $entityManager = $this->getDoctrine()->getManager();
+        $buildings = $entityManager->getRepository(Building::class)->find($id);
+        if (!$buildings) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+        $level=$buildings->getControlHQ();
+        $level=$level+1;
+        $buildings->setControlHQ($level);
+        $entityManager->flush();
+        return $this->redirectToRoute('building_list', [
+            'id' => $buildings->getId()
+        ]);
     }
     
 }
