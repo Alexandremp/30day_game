@@ -67,124 +67,46 @@ class BuildingController extends Controller
             .'<br>Laboratory ' . $building->getLaboratory()
         );
     }
+    
     /**
-     * @Route("/building/UpgradeControlHQ/{id}", name="UpgradeControlHQ")
+     * @Route("/building/Upgrade/{building}/{id}", name="upgrade_building")
      * @Method({"GET", "POST"})
      */
-    public function upgradeControlHQ($id){
-        $entityManager = $this->getDoctrine()->getManager();
-        $buildings = $entityManager->getRepository(Building::class)->find($id);
-        if (!$buildings) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
-            );
-        }
-        $level=$buildings->getControlHQ();
-        $level=$level+1;
-        $buildings->setControlHQ($level);
-        $entityManager->flush();
-        return $this->redirectToRoute('building_list', [
-            'id' => $buildings->getId()
-        ]);
-    }
-    /**
-     * @Route("/building/UpgradeDrillingRig/{id}", name="UpgradeDrillingRig")
-     * @Method({"GET", "POST"})
-     */
-    public function upgradeDrillingRig($id){
-        $entityManager = $this->getDoctrine()->getManager();
-        $buildings = $entityManager->getRepository(Building::class)->find($id);
-        if (!$buildings) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
-            );
-        }
-        $level=$buildings->getDrillingRig();
-        $level=$level+1;
-        $buildings->setDrillingRig($level);
-        $entityManager->flush();
-        return $this->redirectToRoute('building_list', [
-            'id' => $buildings->getId()
-        ]);
-    }
-    /**
-     * @Route("/building/UpgradeWarehouse/{id}", name="UpgradeWarehouse")
-     * @Method({"GET", "POST"})
-     */
-    public function upgradeWarehouse($id){
-        $entityManager = $this->getDoctrine()->getManager();
-        $buildings = $entityManager->getRepository(Building::class)->find($id);
-        if (!$buildings) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
-            );
-        }
-        $level=$buildings->getWarehouse();
-        $level=$level+1;
-        $buildings->setWarehouse($level);
-        $entityManager->flush();
-        return $this->redirectToRoute('building_list', [
-            'id' => $buildings->getId()
-        ]);
-    }
-    /**
-     * @Route("/building/UpgradeHuntersLodge/{id}", name="UpgradeHuntersLodge")
-     * @Method({"GET", "POST"})
-     */
-    public function upgradeHuntersLodge($id){
-        $entityManager = $this->getDoctrine()->getManager();
-        $buildings = $entityManager->getRepository(Building::class)->find($id);
-        if (!$buildings) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
-            );
-        }
-        $level=$buildings->getHuntersLodge();
-        $level=$level+1;
-        $buildings->setHuntersLodge($level);
-        $entityManager->flush();
-        return $this->redirectToRoute('building_list', [
-            'id' => $buildings->getId()
-        ]);
-    }
-    /**
-     * @Route("/building/UpgradeBarracks/{id}", name="UpgradeBarracks")
-     * @Method({"GET", "POST"})
-     */
-    public function upgradeBarracks($id){
-        $entityManager = $this->getDoctrine()->getManager();
-        $buildings = $entityManager->getRepository(Building::class)->find($id);
-        if (!$buildings) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
-            );
-        }
-        $level=$buildings->getBarracks();
-        $level=$level+1;
-        $buildings->setBarracks($level);
-        $entityManager->flush();
-        return $this->redirectToRoute('building_list', [
-            'id' => $buildings->getId()
-        ]);
-    }
-    /**
-     * @Route("/building/UpgradeLaboratory/{id}", name="UpgradeLaboratory")
-     * @Method({"GET", "POST"})
-     */
-    public function upgradeLaboratory($id){
-        $entityManager = $this->getDoctrine()->getManager();
-        $buildings = $entityManager->getRepository(Building::class)->find($id);
-        if (!$buildings) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
-            );
-        }
-        $level=$buildings->getLaboratory();
-        $level=$level+1;
-        $buildings->setLaboratory($level);
-        $entityManager->flush();
-        return $this->redirectToRoute('building_list', [
-            'id' => $buildings->getId()
-        ]);
-    }
+    public function UpgradeBuilding($building,$id){
+            $entityManager = $this->getDoctrine()->getManager();
+            $buildings = $entityManager->getRepository(Building::class)->find($id);
+            if (!$buildings) {
+                throw $this->createNotFoundException(
+                    'No product found for id '.$id
+                );
+            }
+            switch ($building) {
+                    case 100:
+                        $type='ControlHQ';
+                        break;
+                    case 101:
+                        $type='DrillingRig';
+                        break;
+                    case 102:
+                        $type='Warehouse';
+                        break;
+                    case 103:
+                        $type='HuntersLodge';
+                        break;
+                    case 104:
+                        $type='Barracks';
+                        break;
+                    case 105:
+                        $type='Laboratory';
+                        break;
+            }
+            
+            $level=$buildings->'get'.$type();
+            $level=$level+1;
+            $buildings->'set'.$type($level);
+            $entityManager->flush();
+            return $this->redirectToRoute('building_list', [
+                'id' => $buildings->getId()
+            ]);
+    }     
 }
