@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello !{% endblock %}
+
+{% block body %}
+    <h2>Identifier</h2><br>
+    <h5><b> UserId: </b> {{ userpr.id }}
+        <br><b> Username: </b> {{ userpr.username }}
+        <br><b> CityId: </b> {{ cities.id }}
+        <br><b> City Name: </b> {{ cities.CityName }}
+        <br><br></h5>
+
+            <h4><b>Building Id: </b>{{ building.id }}</h4>
+    <h5>  <b>ControlHQ: </b>{{ building.ControlHQ }}
+            <br><b>DrillingRig: </b>{{ building.DrillingRig }}
+            <br><b>Warehouse: </b>{{ building.Warehouse }}
+            <br><b>HuntersLodge: </b>{{ building.HuntersLodge }}
+            <br><b>Barracks: </b>{{ building.Barracks }}
+        <br><b>Laboratory: </b>{{ building.Laboratory }}</h5>
+{% endblock %}
